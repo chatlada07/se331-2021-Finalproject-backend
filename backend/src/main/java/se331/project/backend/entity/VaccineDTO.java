@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -17,4 +20,5 @@ public class VaccineDTO {
     String hometown;
     String firstdoes;
     String seconddose;
+    List<VaccineOwnEventsDTO> ownEvents = new ArrayList<>();
 }
