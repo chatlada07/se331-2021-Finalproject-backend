@@ -5,11 +5,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorityDTO {
+public class VaccineOwnEventsDTO {
+    Long id;
     String name;
     String surname;
+    String age;
+    String hometown;
+    String firstdoes;
+    String seconddose;
+    List<Participant> participantList;
 }
