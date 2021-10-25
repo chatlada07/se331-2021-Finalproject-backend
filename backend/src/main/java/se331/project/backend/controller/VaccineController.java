@@ -17,7 +17,7 @@ public class VaccineController {
      VaccineService vaccineService;
      @GetMapping("/vaccines")
      ResponseEntity<?> getVaccines(){
-          return ResponseEntity.ok(LabMapper.INSTANCE.getOrganizerDTO(vaccineService.getAllOrganizer()));
+          return ResponseEntity.ok(LabMapper.INSTANCE.getOrganizerDTO(vaccineService.getAllVaccine()));
      }
 
 //     @PostConstruct
