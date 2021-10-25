@@ -6,15 +6,15 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 import java.util.List;
 
-@Data
-@Builder
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
+//@Data
+//@Builder
+//@Entity
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Vaccine {
-    @Id
-    @GeneratedValue(Strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+//    @Id
+//    @GeneratedValue(Strategy = GenerationType.IDENTITY)
+//    @EqualsAndHashCode.Exclude
     Long id;
     String name;
     String surname;
@@ -24,7 +24,7 @@ public class Vaccine {
     String seconddose;
 
     //เดี่ยวมาใส่ต่อตรงนี้ งงอยุ่
-    @OneToOne(mappedBy = "vaccine")
+//    @ManyToOne (mappedBy = "vaccine")
 
 
 

@@ -46,6 +46,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("CMU").build());
         org3 = organizerRepository.save(Organizer.builder()
                 .name("ChiangMai").build());
+
         Event tempEvent;
         tempEvent = eventRepository.save(Event.builder()
                 .category("Academic")
@@ -103,23 +104,16 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     }
 
 
-    User user1, user2, user3;
-
+    User user, doctor, admin;
 
     private void addUser() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         Authority authUser = Authority.builder().name(AuthorityName.ROLE_USER).build();
         Authority authAdmin = Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
-        user1 = User.builder()
-                .username("admin")
-                .password(encoder.encode("admin"))
-                .firstname("admin")
-                .lastname("admin")
-                .email("admin@admin.com")
-                .enabled(true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .build();
-        user2 = User.builder()
+        Authority authDoctor = Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();
+
+        //User
+        user = User.builder()
                 .username("user")
                 .password(encoder.encode("user"))
                 .firstname("user")
@@ -128,23 +122,33 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
-        user3 = User.builder()
-                .username("disableUser")
-                .password(encoder.encode("disableUser"))
-                .firstname("disableUser")
-                .lastname("disableUser")
-                .email("disableUser@user.com")
-                .enabled(false)
+        //Admin
+        admin = User.builder()
+                .username("admin")
+                .password(encoder.encode("admin"))
+                .firstname("admin")
+                .lastname("admin")
+                .email("admin@admin.com")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+        //Doctor
+        doctor = User.builder()
+                .username("doctor")
+                .password(encoder.encode("doctor"))
+                .firstname("doctor")
+                .lastname("doctor")
+                .email("doctor@doctor.com")
+                .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
         authorityRepository.save(authUser);
         authorityRepository.save(authAdmin);
-        user1.getAuthorities().add(authUser);
-        user1.getAuthorities().add(authAdmin);
-        user2.getAuthorities().add(authUser);
-        user3.getAuthorities().add(authUser);
-        userRepository.save(user1);
-        userRepository.save(user2);
-        userRepository.save(user3);
+        user.getAuthorities().add(authUser);
+        admin.getAuthorities().add(authAdmin);
+        doctor.getAuthorities().add(authDoctor);
+        userRepository.save(user);
+        userRepository.save(admin);
+        userRepository.save(doctor);
     }
 }

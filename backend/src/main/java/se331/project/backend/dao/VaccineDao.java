@@ -5,5 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface VaccineDao {
-    Page<Vaccine> getVaccines()
+//    ???
+    Page<Vaccine> getVaccines();
+
 }
