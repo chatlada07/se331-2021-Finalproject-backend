@@ -13,7 +13,7 @@ import se331.project.backend.entity.Vaccine;
 import java.util.List;
 
 @Service
-public class VaccineServicelmpl {
+public class VaccineServicelmpl {/*
     @Autowired
     VaccineDao vaccineDao;
     @Override
@@ -24,5 +24,5 @@ public class VaccineServicelmpl {
     @Override
     public Page<Vaccine> getOrganizer(Integer page, Integer pageSize) {
         return vaccineDao.getVaccine(PageRequest.of(page,pageSize));
-    }
+    }*/
 }

@@ -15,7 +15,8 @@ public interface LabMapper {
     EventDTO getEventDto(Event event);
     List<EventDTO> getEventDto(List<Event> events);
     UserDTO getUserDTO(User user);
-
+    PatientDTO getPatientDTO(Patient patient);
+    List<PatientDTO> getPatientDTO(List<Patient> patients);
     OrganizerDTO getOrganizerDTO(Organizer organizer);
     List<OrganizerDTO> getOrganizerDTO(List<Organizer> organizers);
     @Mapping(target = "authorities", expression = "java(organizer.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")

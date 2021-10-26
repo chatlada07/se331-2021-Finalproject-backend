@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 
 @Service
 public class EventServiceImpl implements EventService{
+    /*
     @Autowired
     EventDao eventDao;
     @Autowired
@@ -44,5 +45,5 @@ public class EventServiceImpl implements EventService{
     @Override
     public Page<Event> getEvents(String title, Pageable pageable) {
         return eventDao.getEvent(title,pageable);
-    }
+    }*/
 }

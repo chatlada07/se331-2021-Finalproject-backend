@@ -6,17 +6,15 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import se331.project.backend.entity.Event;
-import se331.project.backend.entity.Organizer;
-import se331.project.backend.repository.EventRepository;
-import se331.project.backend.repository.OrganizerRepository;
-import se331.project.backend.repository.ParticipantRepository;
+
+import se331.project.backend.entity.Vaccine;
+import se331.project.backend.repository.VaccineRepository;
 import se331.project.backend.security.entity.Authority;
 import se331.project.backend.security.entity.AuthorityName;
 import se331.project.backend.security.entity.User;
 import se331.project.backend.security.repository.AuthorityRepository;
 import se331.project.backend.security.repository.UserRepository;
-import se331.project.backend.entity.Event;
+
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
@@ -25,20 +23,22 @@ import java.util.Date;
 
 @Component
 public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
-    @Autowired
-    EventRepository eventRepository;
-    @Autowired
-    OrganizerRepository organizerRepository;
-    @Autowired
-    ParticipantRepository participantRepository;
+
     @Autowired
     AuthorityRepository authorityRepository;
     @Autowired
     UserRepository userRepository;
 
-//    @Override
-//    @Transactional
-//    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+    @Autowired
+    VaccineRepository vaccineRepository;
+    @Override
+    @Transactional
+    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+
+        Vaccine vac1,vac2,vac3;
+        vac1 = vaccineRepository.save(Vaccine.builder().Brand("Pfizer").build());
+        vac2 = vaccineRepository.save(Vaccine.builder().Brand("Moderna").build());
+        vac3 = vaccineRepository.save(Vaccine.builder().Brand("SinoVac").build());
 //        Organizer org1, org2, org3;
 //        org1 = organizerRepository.save(Organizer.builder()
 //                .name("CAMT").build());
@@ -101,7 +101,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 //                user3.setOrganizer(org3);
 //
 //
-//    }
+
+    }
 
 
     User user, doctor, admin;

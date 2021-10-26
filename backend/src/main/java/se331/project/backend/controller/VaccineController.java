@@ -12,7 +12,7 @@ import se331.project.backend.util.LabMapper;
 
 @Controller
 public class VaccineController {
-
+     /*
      @Autowired
      VaccineService vaccineService;
      @GetMapping("/vaccines")
@@ -114,6 +114,6 @@ public class VaccineController {
 //                 .seconddose("AstraZeneca")
 //                 .build());
 
-
+*/
      }
 

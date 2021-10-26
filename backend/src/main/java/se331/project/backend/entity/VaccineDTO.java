@@ -13,12 +13,5 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VaccineDTO {
-    Long id;
-    String name;
-    String surname;
-    String age;
-    String hometown;
-    String firstdoes;
-    String seconddose;
-    List<VaccineOwnEventsDTO> ownEvents = new ArrayList<>();
+    String Brand;
 }
